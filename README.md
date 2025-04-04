@@ -28,5 +28,18 @@ There is no telemtry in the application, it was designed to run locally and with
 - Compressed memory dumps will need to be uncompressed first
 - Will only work for SQL Server, not Agent or other processes
 
+## How To Use
+
+![Current Interface](https://github.com/user-attachments/assets/c5c46d99-4d40-4d49-8b01-8b5f1cec55f9)
+
+1. Choose a SQL Server dump file for sqlservr.exe, this will typically end in .DMP or .MDMP
+2. Select a Symbols path. By default this will choose a local temp directory as a downstream cache location and set the public Microsoft Symbols server. If you want to use this on an internet disconnected location or use an existing symbols cache location, clicking on the "Select Symbols Path" button will allow you to select the local folder. This is an advanced option.
+3. Select the Modules path. The modules path is for processing dumps on a different computer other than where they were generated. If you're running it locally to the computer where the dump was generated, there is no need to change this value. If you're running this on a different computer, you'll need to have the modules which are in the dump in a local path which is accessible. This means having a copy of the various files, such as sqlservr.exe, sqlmin.dll, sqlos.dll, sqllang.dll, etc., this is an advanced option.
+4. This is a quick summary of the reason for the dump with SQL Server information and the thread which caused the dump to be generated.
+5. This is the dump contents window which holds the various resources inside the dump. Depending on the memory dump there may different resource available such as Threads, Modules, Process Memory Information, etc.
+6. This is the context information window for any resources selected in #5 and will output various pieces of information. For example, for a thread, it'll output the thread stack, OS thread ID (which can be used to correlate with perfmon/logman/etw tracing), etc.
+7. This window holds some basic status and debug information and is generally not important unless an error occurs.
+
+
 # Releases
 3/22/2025 - Alpha 1.0
